@@ -96,9 +96,10 @@ def desenhar_paralelepipedo(ax, pontos):
 
     # Se alguma dimensão for nula, garante-se que o corpo
     # ainda tenha uma dimensão visualmente apreciável
-    dx = max(xmax - xmin, 1.0)
-    dy = max(ymax - ymin, 1.0)
-    dz = max(zmax - zmin, 1.0)
+    dimensao_minima = 5.0
+    dx = max(xmax - xmin, dimensao_minima)
+    dy = max(ymax - ymin, dimensao_minima)
+    dz = max(zmax - zmin, dimensao_minima)
 
     # Margem ao redor dos pontos de aplicação
     margem = 0.15
@@ -329,10 +330,7 @@ else:
 
 # EIXO CENTRAL E MOMENTO MÍNIMO
 
-possui_eixo_central = (
-    not R_nulo
-    and abs(I) >= TOL
-)
+possui_eixo_central = (not R_nulo)
 
 E0 = None
 M_E = None
